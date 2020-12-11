@@ -1,1 +1,1 @@
-web: python UncleBob.py
+worker: python UncleBob.py
