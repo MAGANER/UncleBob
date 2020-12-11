@@ -46,7 +46,9 @@ class UncleBob(Bot):
 	
 		
 		self.started 		= False
-		self.beer_counter   = True
+		
+		self.beer_counter     = True
+		self.bullshit_counter = True
 		
 		self.actions = {
 						"будешь пиво?":  self.wanna_beer,
@@ -90,8 +92,14 @@ class UncleBob(Bot):
 			self.beer_counter = False
 		if "пиво" not in self.last_message:
 			self.beer_counter = True
-	
-	
+		
+		if "хуйня" in self.last_message and self.bullshit_counter:
+			data = ("воистину!","поебать","хватит пиздеть")
+			self.send_message(self.last_chat_id,random.choice(data))
+			self.bullshit_counter = False
+		if "хуйня" not in self.last_message:
+			self.bullshit_counter = True
+			
 	def is_talking_to_myself(self,text):
 		return "/дядька" in text
 	def get_command(self,text):
