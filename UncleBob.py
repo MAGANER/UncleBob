@@ -4,7 +4,7 @@ import sys
 
 class Bot:
 	def __init__(self):
-		self.url = https://api.telegram.org/bot1410863001:AAGoiqW1uitKM381nqbwkRRDhfYZbZX6jUs/
+		self.url = "https://api.telegram.org/bot1410863001:AAGoiqW1uitKM381nqbwkRRDhfYZbZX6jUs/"
 		
 	def get_updates(self, offset=None, timeout=30):
 		method = 'getUpdates'
