@@ -112,12 +112,14 @@ class UncleBob(Bot):
 		
 		self.last_update_id = self.last_update['update_id']
 		if "message" in self.last_update.keys():
-			self.last_chat_text = self.last_update['message']['text']
+			if 'text' in self.last_update['message'].keys():
+				self.last_chat_text = self.last_update['message']['text']
+			
 			self.last_chat_id   = self.last_update['message']['chat']['id']
 			self.last_chat_name = self.last_update['message']['from']['first_name']
 			self.curr_message_id= self.last_update['message']['message_id']
 		
-		if "text" in self.last_update["message"]:
+		if "text" in self.last_update["message"].keys():
 			self.last_message = self.last_update["message"]["text"]
 
 	def send_start_message(self):
